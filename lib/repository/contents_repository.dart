@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'local_storage_repository.dart';
 
 class ContentsRepository extends LocalStorageRepository {
+  // ignore: non_constant_identifier_names
   final String MY_FAVORITE_KEY = "MY_FAVORITE_KEY";
   Map<String, dynamic> data = {
     "ara": [

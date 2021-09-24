@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ManorTemperature extends StatelessWidget {
   double manorTemp;
   int level;
-  ManorTemperature({Key key, this.manorTemp}) {
+  ManorTemperature({
+    Key? key,
+    required this.manorTemp,
+    this.level,
+  }) {
     _calcTempLevel();
   }
 
@@ -39,6 +44,7 @@ class ManorTemperature extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
+            // ignore: unnecessary_brace_in_string_interps
             "${manorTemp}°C",
             style: TextStyle(
               color: tempPerColors[level],
@@ -71,6 +77,7 @@ class ManorTemperature extends StatelessWidget {
     return Container(
       width: 30,
       height: 30,
+      // ignore: unnecessary_brace_in_string_interps
       child: Image.asset("assets/images/level-${level}.jpg"),
     );
   }

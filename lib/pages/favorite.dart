@@ -5,7 +5,6 @@ import 'package:flutter_carrot_market/utils/data_utils.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MyFavoriteContents extends StatefulWidget {
-  MyFavoriteContents({Key key}) : super(key: key);
 
   @override
   _MyFavoriteContentsState createState() => _MyFavoriteContentsState();

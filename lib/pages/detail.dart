@@ -5,9 +5,10 @@ import 'package:flutter_carrot_market/repository/contents_repository.dart';
 import 'package:flutter_carrot_market/utils/data_utils.dart';
 import 'package:flutter_svg/svg.dart';
 
+// ignore: must_be_immutable
 class DetailContentView extends StatefulWidget {
   Map<String, dynamic> data;
-  DetailContentView({Key key, this.data}) : super(key: key);
+  DetailContentView({Key ?key, required this.data}) : super(key: key);
 
   @override
   _DetailContentViewState createState() => _DetailContentViewState();
@@ -17,14 +18,14 @@ class _DetailContentViewState extends State<DetailContentView>
     with TickerProviderStateMixin {
   final ContentsRepository contentsRepository = ContentsRepository();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  Size size;
+  late Size size;
 
-  List<String> imgList;
-  int _current;
+  late List<String> imgList;
+  late int _current;
   ScrollController controller = ScrollController();
   double locationAlpha = 0;
-  AnimationController _animationController;
-  Animation _colorTween;
+  late AnimationController _animationController;
+  late Animation _colorTween;
   bool isMyFavoriteContent = false;
 
   @override
@@ -76,7 +77,7 @@ class _DetailContentViewState extends State<DetailContentView>
   /*
   * appBar Widget 구현 
   */
-  Widget _appbarWidget() {
+  PreferredSizeWidget _appbarWidget() {
     return AppBar(
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
@@ -330,7 +331,8 @@ class _DetailContentViewState extends State<DetailContentView>
               setState(() {
                 isMyFavoriteContent = !isMyFavoriteContent;
               });
-              scaffoldKey.currentState.showSnackBar(SnackBar(
+              // ignore: deprecated_member_use
+              scaffoldKey.currentState!.showSnackBar(SnackBar(
                 duration: Duration(milliseconds: 1000),
                 content: Text(
                     isMyFavoriteContent ? "관심목록에 추가됐어요." : "관심목록에서 제거됐어요."),
